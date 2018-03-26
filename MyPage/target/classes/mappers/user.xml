@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bit.mypage">
+	<insert id = "joinUser" parameterType="com.bit.mypage.vo.User_VO">
+		insert into USER_
+		values (#{id}, #{pw})
+	</insert>
+	<select id="getPassword" parameterType = "com.bit.mypage.vo.User_VO"
+	resultType="string">
+		select pw
+		from USER_
+		where id = #{id}
+	</select>
+	<update id = "updateUser" parameterType = "com.bit.mypage.vo.User_VO">
+		update User_ 
+		set
+		nickName = #{nickName},
+		pw		 = #{pw},
+		where id = #{id}
+	</update>
+	<delete id = "deleteUser" parameterType = "com.bit.mypage.vo.User_VO">
+		delete from USER_
+		where id = #{id}	
+	</delete>
+</mapper>
